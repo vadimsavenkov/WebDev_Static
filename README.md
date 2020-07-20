@@ -1,0 +1,1 @@
+This is a test to run travel website without html fils using ejs
