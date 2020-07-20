@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to <%= title %>!</title>
+  <%- include('./partials/css-global'); %>
+</head>
+
+<%- include('./partials/header.ejs'); %>
+
+<body>
+  <header class="full-vh center-items">
+    <figure>
+      <img src="http://picsum.photos/id/<%= id %>/600" alt="<%= title %>">
+      <figcaption>Hello <%= title %>!</figcaption>
+    </figure>
+  </header>
+
+<%- include('./partials/js-gallery'); %>
+<%- include('./partials/js-toggle'); %>  
+
+</body>
+
+<%- include('./partials/foot'); %>
+
+</html>
