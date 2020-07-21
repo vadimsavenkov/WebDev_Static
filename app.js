@@ -12,9 +12,9 @@ app.set('view engine', 'ejs');
 // if yes, return that file as a response to the browser
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/index', function(request, response){
-  response.render('index',{});
-})
+ app.get('/', function(request, response){
+   response.render('index',{});
+ })
 
 app.get('/login', function(request, response){
   response.render('login',{});
