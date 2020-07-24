@@ -38,17 +38,17 @@ app.get('/:id', function(request, response){
 
   // Check for IDs that are not in our list
   if (!destination) {
-    return response.send('Invalid ID.');
+    return response.send('Invalid ID');
   }
 
   // We now pass our animal object into our view (the 2nd object must be an object)
   response.render('destinations',destination);
-})
+  });
 
 // if no file or endpoint found, send a 404 error as a response to the browser
 app.use(function(req, res, next) {
   res.status(404);
-  response.render('404', {});
+  res.render('404', {page:"404"});
 });
 
 // start up server
