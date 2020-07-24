@@ -197,26 +197,33 @@ input:focus:valid {
 
 .gallery {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;  
   justify-content: center;
-  max-width: 800px; 
-  margin: auto; 
+  margin: auto;  
 }
 
 .gallery img {
-  padding-top: 20px; 
-  padding-right: 10px; 
+  /* padding-top: 10px;  */
+  padding-right: 30px;
+  padding-left: 30px; 
 }
 
-.gallery a {
+.gallery figure {
   Color: black;
   padding-top: 50px;
-  font-family: "Karla", sans-serif;
+  font-family: "Kurale", sans-serif;
   text-align: center;
-  font-size: 15px;
-}
+  font-weight: bold;
+  font-size: 22px;
+  background-image: url("https://picsum.photos/id/344/750/750");  
+  border-radius: 8px;
+  }
 
-.center-items {
+  .gallery figure:hover {
+    background-image: linear-gradient(rgb(178, 233, 236), lightblue);
+  }
+
+ .center-items {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,10 +234,31 @@ input:focus:valid {
 }
 
 #figure_text {
+  flex-wrap: wrap;
   text-align: center;
-  font-size: 25px;
+  font-size: 45px;
   justify-content: center;
-}
+  margin: 100px 0;  
+  border-radius: 8px; 
+} 
+
+#figure_text p {
+  flex-wrap: wrap;
+  background-image: url("https://picsum.photos/id/344/2000/2000");   
+  text-align: justify;
+  font-size: 25px;
+  border-radius: 10px;
+  font-family: "Kurale", sans-serif;
+} 
+
+
+#figure_text img {
+  border-radius: 15px;
+  border: 1px solid black;
+  color: black;
+}  
+
+
 
  /*----------------------*/
  /* CONTACT FORM SECTION */
