@@ -1,6 +1,12 @@
 // import modules
 const path = require('path');
 const express = require('express');
+
+const moment = require('moment');
+const today = moment(); 
+console.log(today.format('YYYY'));
+
+
 // Custom module paths start with './' -> current directory 
 const destinations = require('./destinations');
 
@@ -8,8 +14,7 @@ const destinations = require('./destinations');
 const app = express();
 app.set('view engine', 'ejs');
 
-// automatically check if requested file is found in /public
-// if yes, return that file as a response to the browser
+// automatically check if requested file is found in /public. If yes, return that file as a response to the browser
 app.use(express.static(path.join(__dirname, 'public')));
 
  app.get('/', function(request, response){
@@ -24,31 +29,36 @@ app.get('/register', function(request, response){
   response.render('register',{});
 })
 
-// Display an individual animal page when someone browses to an ID
-// https://expressjs.com/en/api.html#req.params
+app.get('/gallery', function(request, response){
+  response.render('gallery',{});
+})
+
+// Display an individual destination gallery page when someone browses to an ID
 app.get('/:id', function(request, response){
 
-  // Find the specific animal in our module using array.find()
-  // https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
-  const destination = destinations.find(function(item) {
+// Find the specific destination in our module using array.find()
+const destination = destinations.find(function(item) {
+  return item.id === parseInt(request.params.id);
+});
 
-    return item.id === parseInt(request.params.id);
+// Check for IDs that are not in our list
+if (!destination) {
+  return response.send('Invalid ID');
+}
 
-  });
-
-  // Check for IDs that are not in our list
-  if (!destination) {
-    return response.send('Invalid ID');
-  }
-
-  // We now pass our animal object into our view (the 2nd object must be an object)
+//  We now pass our destination object into our view (the 2nd object must be an object)
   response.render('destinations',destination);
-  });
+});
 
 // if no file or endpoint found, send a 404 error as a response to the browser
 app.use(function(req, res, next) {
   res.status(404);
   res.render('404', {page:"404"});
+});
+
+app.use((req, res, next)=>{
+  res.locals.moment = 2020;
+  next();
 });
 
 // start up server
