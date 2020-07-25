@@ -9,7 +9,7 @@
   
 </head>
 
-  <%- include('./partials/header.ejs'); %>
+  <%- include('./partials/header_reg.ejs'); %>
 
  <body class="sky"> 
    <main class="register_form">
@@ -28,9 +28,12 @@
                  <div>
                    <label for="pass_confirm" class="required">Confirm Password</label>
                    <input type="password" name="pass_confirm" id="pass_confirm" minlength="8" class="register_box" placeholder="Confirm your password" required>
-                   <div>
-                     <input type="submit" value="Register" id="form_submit"> 
-                     <input type="checkbox" name="Subscribe" id="form_checkup"> Subscribe to Our Newsletter
+                   <div class="subscribe">
+                     <input type="submit" value="Register" id="form_submit">
+                     <div> 
+                     <input type="checkbox"
+                      name="Subscribe" id="form_checkup"> Subscribe to Our Newsletter
+                     </div>
                      </div>
                    </div>
                  </div>
